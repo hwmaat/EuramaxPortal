@@ -1,3 +1,70 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
+/* Datagrid =============================================================== */
+#gridContainer {
+    height:calc(100% - 40px);
+    width:100%;
+  }
+
+
+  #gridContainer .dx-datagrid > .dx-datagrid-headers, .dx-datagrid > .dx-datagrid-rowsview, .dx-datagrid > .dx-datagrid-total-footer {
+    background-color: unset;
+  }
+
+  .dx-button.small-icon {
+    font-size: 12px!important;
+    width: 16px!important;
+    height: 16px!important;
+  }
+  
+  .informer {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    color: cornflowerblue;
+    font-size:16px;
+    font-weight: 700;
+    
+  }
+  .infcheckbox >div {
+    font-size: 12px!important;
+    display: flex;
+    align-items: center;
+    margin-left:5px;
+  }
+  .dx-toolbar-label.infcheckbox .dx-toolbar-item-content > div {
+    margin-right: 5px;
+    margin-bottom: 2px;
+  }
+  
+  .dx-switch{
+    height:20px!important;
+  }
+  /* Toolbars ============================================================== */
+  .ams-toolbar {
+    width:calc(100%);
+    background-color: transparent;
+    border-bottom: 2px solid grey;
+    h3{
+      margin-top: 5px;
+      color:gold;
+    }
+  }
+
+  /* forms ============================================================== */
+  .edit-color .dx-texteditor-input {
+    background-color: rgb(63, 62, 62);
+  }
+  .edit-color .dx-texteditor-input-container {
+    //filter: brightness(95%);
+    background-color: green!important;
+  }
+  
+  .edit-color .dx-texteditor.dx-editor-underlined {
+    border: 0px solid lightgrey;
+  }
+  
+  .edit-color .dx-texteditor-buttons-container {
+    background-color: black;
+  }

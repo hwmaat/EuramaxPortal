@@ -1,0 +1,60 @@
+<dx-toolbar class = "ams-toolbar">
+    <dxi-item
+        location="before"
+    ><div *dxTemplate>
+        <h3>DB2 Euravib_Import</h3>
+    </div></dxi-item>
+</dx-toolbar>
+
+<dx-data-grid
+id='gridContainer'
+[dataSource]="euravib_import"
+keyExpr="id"
+[focusedRowEnabled]="true"
+
+>
+<dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
+<dxo-paging 
+    [pageSize]="25"
+    [enabled]="true"
+    > </dxo-paging>
+<dxo-pager
+  [visible]="true"
+  [allowedPageSizes]="[5, 10, 15, 20, 25, 100]"
+  [displayMode]="'full'"
+  [showPageSizeSelector]="true"
+  [showInfo]="true"
+  [showNavigationButtons]="true"
+>
+</dxo-pager>
+<dxi-column dataField="id" [width]="90" caption="order#" [allowEditing]="false"></dxi-column>
+<dxi-column dataField="entry_Date" [width]="90" caption="entry_Date" [width]="150" format="dd-MM-yyyy"></dxi-column>
+<dxi-column dataField="rev_Date" [width]="90" caption="rev_Date" [width]="150" format="dd-MM-yyyy"></dxi-column>
+<dxi-column dataField="suppl_Nr" [width]="90" caption="suppl_Nr" [width]="150"></dxi-column>
+<dxi-column dataField="cas_Nr" width="auto" caption="cas_Nr" dataType="string"></dxi-column>
+<dxi-column dataField="cas_Perc" width="auto" caption="cas_Perc" dataType="string"></dxi-column>
+<dxi-column dataField="h_Nr" width="auto" caption="h_Nr" dataType="string"></dxi-column>
+<dxi-column dataField="adr_Un_Nr" width="auto" caption="adr_Un_Nr" dataType="string"></dxi-column>
+<dxi-column dataField="adr_Cargo_Name" width="auto" caption="adr_Cargo_Name" dataType="string"></dxi-column>
+<dxi-column dataField="adr_TransportHazard_Class" width="auto" caption="adr_TransportHazard_Class" dataType="string"></dxi-column>
+<dxi-column dataField="adr_Packaging_Group" width="auto" caption="adr_Packaging_Group" dataType="string"></dxi-column>
+<dxi-column dataField="adr_Environment_Hazards" width="auto" caption="h_Cadr_Environment_Hazardsat" dataType="string"></dxi-column>
+<dxi-column dataField="adr_ExtraInfo" width="auto" caption="adr_ExtraInfo" dataType="string"></dxi-column>
+
+<dxi-column dataField="imdg_Un_Nr" width="auto" caption="imdg_Un_Nr" dataType="string"></dxi-column>
+<dxi-column dataField="imdg_Cargo_Name" width="auto" caption="imdg_Cargo_Name" dataType="string"></dxi-column>
+<dxi-column dataField="imdg_TransportHazard_Class" width="auto" caption="imdg_TransportHazard_Class" dataType="string"></dxi-column>
+<dxi-column dataField="imdg_Packaging_Group" width="auto" caption="imdg_Packaging_Group" dataType="string"></dxi-column>
+<dxi-column dataField="imdg_Environment_Hazards" width="auto" caption="imdg_Environment_Hazards" dataType="string"></dxi-column>
+<dxi-column dataField="imdg_ExtraInfo" width="auto" caption="imdg_ExtraInfo" dataType="string"></dxi-column>
+
+<dxi-column dataField="extraInfo_TunnelCode" width="auto" caption="extraInfo_TunnelCode" dataType="string"></dxi-column>
+<dxi-column dataField="flashPoint" width="auto" caption="flashPoint" dataType="string"></dxi-column>
+<dxi-column dataField="ems_Fire" width="auto" caption="ems_Fire" dataType="string"></dxi-column>
+<dxi-column dataField="ems_Spillage" width="auto" caption="ems_Spillage" dataType="string"></dxi-column>
+<dxi-column dataField="user" width="auto" caption="user" dataType="string"></dxi-column>
+<dxi-column dataField="eg_Nr" width="auto" caption="eg_Nr" dataType="string"></dxi-column>
+
+<dxi-column dataField="" caption="" width="100%"></dxi-column>
+
+</dx-data-grid>

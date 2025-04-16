@@ -1,0 +1,5 @@
+<div class="home">
+    <ng-container *ngIf="settings$ | async as settings">
+      <img [src]="'assets/' + settings.backgroundImage" alt="Background" class="center-image" />
+    </ng-container>
+  </div>

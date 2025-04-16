@@ -1,4 +1,12 @@
-<div class = "header">
+<!-- <div class = "header">
     <span *ngIf="title$ | async as title">{{ title }}</span>
     <span class="spacer"></span>
-</div>
+</div> -->
+
+<dx-toolbar>
+  <dxi-item location="before" text="Euramax Portal"></dxi-item>
+  <dxi-item location="after" locateInMenu="never">
+    <app-toolbar-menu></app-toolbar-menu>
+  </dxi-item>
+</dx-toolbar>
+  

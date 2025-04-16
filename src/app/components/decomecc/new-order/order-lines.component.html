@@ -1,0 +1,33 @@
+<dx-data-grid
+    id='gridContainer'
+    [dataSource]="orderLines"
+    keyExpr="lineNumber"
+    [focusedRowEnabled]="true"
+    [hoverStateEnabled]="true"
+    (onCellHoverChanged)="onCellHoverChanged($event)"
+    (onExporting)="onExporting($event, 'Decomecc_Orders')"
+    [searchPanel]="{visible:false}"
+    [groupPanel]="{visible:false}"
+    
+>
+    <dxi-column caption="" [width]="60" cellTemplate="buttonrowtemplate"></dxi-column>
+    <dxi-column dataField="lineNumber" [width]="90" caption="line#" [allowEditing]="false"></dxi-column>
+    <dxi-column dataField="pos" width="auto" caption="pos" [width]="50"></dxi-column>
+    <dxi-column dataField="width" width="auto" dataType="number" caption="width"  [format]="{ type:'fixedPoint', useGrouping: true, precision: 2}"></dxi-column>
+    <dxi-column dataField="gauge" width="auto" dataType="number" caption="gauge"  [format]="{ type:'fixedPoint', useGrouping: true, precision: 2}"></dxi-column>
+    <dxi-column dataField="coilnr" width="auto" caption="coilnr" width="auto"></dxi-column>
+    <dxi-column dataField="weight_kg" width="auto" dataType="number" caption="weight_kg"  width="auto" [format]="{ type:'fixedPoint', useGrouping: true, precision: 2}"></dxi-column>
+    <dxi-column dataField="length_mtr" width="auto" dataType="number" caption="length_mtr" width="auto"  [format]="{ type:'fixedPoint', useGrouping: true, precision: 2}"></dxi-column>
+    <dxi-column dataField="width_mm" width="auto" dataType="number" caption="width_mm" width="auto"  [format]="{ type:'fixedPoint', useGrouping: true, precision: 2}"></dxi-column>
+    <dxi-column dataField="remark" width="auto" caption="remark" width="auto"></dxi-column>
+    <dxi-column dataField="quality_remark" width="auto" caption="quality_remark" width="auto"></dxi-column>
+    <dxi-column dataField="" caption="" width="100%"></dxi-column>
+
+    <div  *dxTemplate="let data of 'buttonrowtemplate'">
+        <div class="button-column" *ngIf ="hoverIndex == getRowIndex(data)|| data.row.isEditing">
+          <dx-button icon="edit" hint = "edit record" stylingMode="text" (onClick)="editRecord(data)" class="small-icon"></dx-button>
+          <dx-button icon="trash" hint = "delete record" stylingMode="text" (onClick)="deleteRecord(data)" class="small-icon"></dx-button>
+        </div>
+    </div>
+
+</dx-data-grid>

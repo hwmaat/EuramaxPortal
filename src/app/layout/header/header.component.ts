@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { map } from 'rxjs/operators';
 import { RouterModule } from '@angular/router';
 import { Globals } from '@app/services/globals.service';
-
+import { DxToolbarModule } from 'devextreme-angular';
+import { ToolbarMenuComponent } from '../toolbar-menu/toolbar-menu.component';
 
 @Component({
   standalone: true,
@@ -12,7 +13,9 @@ import { Globals } from '@app/services/globals.service';
   styleUrls: ['./header.component.scss'],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    DxToolbarModule,
+    ToolbarMenuComponent
   ]
 })
 export class HeaderComponent {

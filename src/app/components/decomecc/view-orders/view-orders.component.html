@@ -1,0 +1,66 @@
+<dx-toolbar class = "ams-toolbar">
+    <dxi-item
+        location="before"
+    ><div *dxTemplate>
+        <h3>Decomecc orders</h3>
+    </div></dxi-item>
+</dx-toolbar>
+
+<dx-data-grid
+    id='gridContainer'
+    [dataSource]="orders"
+    keyExpr="orderNumber"
+    [focusedRowEnabled]="true"
+    [hoverStateEnabled]="true"
+    (onCellHoverChanged)="onCellHoverChanged($event)"
+    (onExporting)="onExporting($event, 'Decomecc_Orders')"
+    (onToolbarPreparing)="onToolbarPreparing($event)" 
+>
+<dxo-export
+    [enabled]="true"
+    [allowExportSelectedData]="true"
+></dxo-export>
+
+<!--         <dxi-item location="before">
+            <div *dxTemplate>
+                <h3 style="margin:0;" class="informer">Decomecc orders</h3>
+            </div>
+        </dxi-item>
+        <dxi-item location="after">
+            <div *dxTemplate>
+              <label style="display: flex; align-items: center; gap: 8px;">
+                <span>Gridlines</span>
+                <dx-switch
+                  [(value)]="showColumnLines"
+                  (onValueChanged)="onGridLinesSwitch($event)">
+                </dx-switch>
+              </label>
+            </div>
+          </dxi-item>    --> 
+          
+    <dxi-column caption="" [width]="60" cellTemplate="buttonrowtemplate"></dxi-column>
+    <dxi-column dataField="orderNumber" [width]="90" caption="order#" [allowEditing]="false"></dxi-column>
+    <dxi-column dataField="orderDate" width="auto" caption="orderdatum" [width]="105" format="dd-MM-yyyy"></dxi-column>
+    <dxi-column dataField="product" width="auto" caption="product"></dxi-column>
+    <dxi-column dataField="max_weight_per_coil" width="auto" dataType="number" caption="weight/coil"  [format]="{ type:'fixedPoint', useGrouping: true, precision: 2}"></dxi-column>
+    <dxi-column dataField="packing" width="auto" dataType="string" caption="packing"></dxi-column>
+    <dxi-column dataField="edge_waves" width="auto" dataType="string" caption="edge_waves"></dxi-column>
+    <dxi-column dataField="center_buckles" width="auto" dataType="string" caption="center_buckles"></dxi-column>
+    <dxi-column dataField="transversal_bow" width="auto" dataType="string" caption="transversal_bow"></dxi-column>
+    <dxi-column dataField="squarness" width="auto" dataType="string" caption="squarness"></dxi-column>
+    <dxi-column dataField="status" width="auto" dataType="string" caption="status"></dxi-column>
+    <dxi-column dataField="decomec_status" width="auto" dataType="string" caption="decomec_status"></dxi-column>
+    <dxi-column dataField="" caption="" width="100%"></dxi-column>
+
+    <div  *dxTemplate="let data of 'buttonrowtemplate'">
+        <div class="button-column" *ngIf ="hoverIndex == getRowIndex(data)|| data.row.isEditing">
+          <dx-button icon="edit" hint = "edit record" stylingMode="text" (onClick)="editRecord(data)" class="small-icon"></dx-button>
+          <dx-button icon="trash" hint = "delete record" stylingMode="text" (onClick)="deleteRecord(data)" class="small-icon"></dx-button>
+        </div>
+    </div>
+    <div *dxTemplate="let data of 'headercaption'">
+        <div class="informer">
+          {{caption}}
+        </div>
+    </div>
+</dx-data-grid>

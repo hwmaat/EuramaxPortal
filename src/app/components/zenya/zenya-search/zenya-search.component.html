@@ -1,0 +1,15 @@
+<div class = "zenyacontainer">
+    <dx-text-box
+    class="zenyasearch"
+    stylingMode="underlined"
+    [(value)]="searchText"
+    
+    placeholder="Search Zenya..."
+    >
+    <dxi-button
+        name="search"
+        location="after"
+        [options]="{ icon: 'search', onClick: onSearchClick }"
+    ></dxi-button>
+    </dx-text-box>
+</div>

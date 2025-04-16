@@ -1,0 +1,82 @@
+<dx-toolbar 
+[multiline]="false"
+class = "ams-toolbar card-toolbar border-top border-bottom">
+<dxi-item
+locateInMenu="auto"
+location="before">
+    <div *dxTemplate>
+        <h2 style = "font-weight: bold;
+        font-size: 28px; margin:0px;
+        letter-spacing: 1.5px;
+        color: burlywood;">Decomecc order#: {{orderNumber}}</h2>
+    </div>
+</dxi-item>
+
+<dxi-item 
+    locateInMenu="never" location="after" >
+    <div *dxTemplate>
+        <dx-button text="" icon="add" hint = "niew record" stylingMode="text" (onClick)="AddRecord()" [disabled]="editMode !== EditMode.Read"></dx-button>
+        <dx-button text="" icon="edit" hint = "wijzigen" stylingMode="text" (onClick)="EditRecord()" [disabled]="editMode != EditMode.Read || (!order.orderNumber)"></dx-button>
+        <dx-button text="" icon="revert" hint = "" stylingMode="text" (onClick)="CancelRecord()"  [disabled]="editMode == EditMode.Read"></dx-button>
+        <dx-button text="" icon="trash" hint = "verwijder record" stylingMode="text" (onClick)="DeleteRecord()"  [disabled]="editMode != EditMode.Read || (!order.orderNumber)"></dx-button>
+        <dx-button text="" icon="save" hint = "wijzigingen opslaan" stylingMode="text" (onClick)="SaveRecord()"  [disabled]="editMode == EditMode.Read"></dx-button>
+        <dx-button text="" icon="refresh" hint = "data opnieuw ophalen" stylingMode="text" (onClick)="GetRecord()"  [disabled]="editMode != EditMode.Read || (!order.orderNumber)"></dx-button>                
+    </div>
+</dxi-item>
+</dx-toolbar>
+<as-split direction="vertical" [gutterSize]="5" class="splitter" >
+    <as-split-area [size]="35">
+        <dx-form
+        id="decomeccform"
+        [ngClass] = "editMode == EditMode.Read? 'formclass' : 'formclass edit-color-background'"
+        [readOnly] = "editMode === EditMode.Read"
+        [alignItemLabelsInAllGroups] = "false"
+        labelLocation="left"
+        [formData]="order">
+
+        <dxi-item itemType="group" [colCount]="6" caption = "">
+            <dxi-item dataField="orderNumber" editorType="dxTextBox"  [editorOptions]="{ stylingMode:'underlined', placeholder: '', readOnly: true}">
+                <dxo-label text="order#"></dxo-label>
+            </dxi-item>
+            <dxi-item dataField="orderDate" editorType="dxDateBox"  [cssClass] = 'editClass' [editorOptions]="{stylingMode: stylingMode, displayFormat: 'dd-MM-yy', useMaskBehavior:'true'}">
+                <dxo-label text="order datum"></dxo-label>
+            </dxi-item>
+            <dxi-item dataField="product" editorType="dxTextBox"  [editorOptions]="{ stylingMode:stylingMode, placeholder: ''}" [cssClass] = 'editClass'>
+                <dxo-label text="product"></dxo-label>
+            </dxi-item>
+            <dxi-item dataField="remarks" editorType="dxTextBox"  [editorOptions]="{ stylingMode:stylingMode, placeholder: ''}" [cssClass] = 'editClass'>
+                <dxo-label text="opmerking"></dxo-label>
+            </dxi-item>
+            <dxi-item dataField="max_weight_per_coil" editorType="dxTextBox"  [editorOptions]="{ stylingMode:stylingMode, placeholder: ''}" [cssClass] = 'editClass'>
+                <dxo-label text="max weight per coil"></dxo-label>
+            </dxi-item>
+            <dxi-item dataField="packing" editorType="dxTextBox"  [editorOptions]="{ stylingMode:stylingMode, placeholder: ''}" [cssClass] = 'editClass'>
+                <dxo-label text="packing"></dxo-label>
+            </dxi-item>
+            <dxi-item dataField="edge_waves" editorType="dxTextBox"  [editorOptions]="{ stylingMode:stylingMode, placeholder: ''}" [cssClass] = 'editClass'>
+                <dxo-label text="edge waves"></dxo-label>
+            </dxi-item>
+            <dxi-item dataField="center_buckles" editorType="dxTextBox"  [editorOptions]="{ stylingMode:stylingMode, placeholder: ''}" [cssClass] = 'editClass'>
+                <dxo-label text="centerbuckles"></dxo-label>
+            </dxi-item>
+            <dxi-item dataField="transversal_bow" editorType="dxTextBox"  [editorOptions]="{ stylingMode:stylingMode, placeholder: ''}" [cssClass] = 'editClass'>
+                <dxo-label text="transversal bow"></dxo-label>
+            </dxi-item>
+            <dxi-item dataField="squarness" editorType="dxTextBox"  [editorOptions]="{ stylingMode:stylingMode, placeholder: ''}" [cssClass] = 'editClass'>
+                <dxo-label text="squarness bow"></dxo-label>
+            </dxi-item>
+            <dxi-item dataField="status" editorType="dxTextBox"  [editorOptions]="{ stylingMode:stylingMode, placeholder: '', readOnly: true}" [cssClass] = 'editClass'>
+                <dxo-label text="EM status"></dxo-label>
+            </dxi-item>
+            <dxi-item dataField="decomec_status" editorType="dxTextBox"  [editorOptions]="{ stylingMode:stylingMode, placeholder: '', readOnly: true}" [cssClass] = 'editClass'>
+                <dxo-label text="decomec status"></dxo-label>
+            </dxi-item>
+
+        </dxi-item>
+        </dx-form>
+    </as-split-area>
+    <as-split-area [size]="65">
+        <app-order-lines [orderNumber]="orderNumber"></app-order-lines> 
+
+    </as-split-area>
+</as-split>

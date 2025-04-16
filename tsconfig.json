@@ -24,10 +24,10 @@
       "@app/*": ["src/app/*"],
       "jszip": ["node_modules/jszip/dist/jszip.min.js"],
       "@environment/*": ["src/environments/*"],
-      "@services/*": ["src/app/shared/services/*"],
-      "@models/*": ["src/app/shared/models/*"],
-      "@helpers/*": ["src/app/shared/helpers/*"],
-      "@components/*": ["src/app/shared/components/*"],
+      "@services/*": ["src/app/services/*"],
+      "@models/*": ["src/app/models/*"],
+      "@helpers/*": ["src/app/helpers/*"],
+      "@components/*": ["src/app/components/*"],
       "@assets/*":["src/assets/*"]
     },
     "lib": [
